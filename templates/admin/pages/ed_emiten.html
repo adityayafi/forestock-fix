@@ -1,0 +1,45 @@
+{% include 'admin/layout/header.html' %}
+{% include 'admin/layout/navbar.html' %}
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-4 text-gray-800">Stock Data Edit Page</h1>
+
+                    <div class="content">
+                        <!-- Entry Data Form -->
+                        <div class="card">
+                            <div class="card-header h4">
+                                Stock Data Edit Form
+                            </div>                            
+                            <form action="editemiten" method="POST">
+                                <div class="card-body">
+                                    <input type="hidden" value="{{id}}" name="id">
+                                    <div class="form-group">
+                                        <label for="stocks">Stock Code</label>
+                                        <input type="text" class="form-control" id="stocks" placeholder="Enter Stocks Code" name="stockscode" value="{{code}}"> 
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="stocks_name">Stock Name</label>
+                                        <input type="text" class="form-control" id="stocks_name" placeholder="Enter Stocks Name" name="stocksname" value="{{name}}">
+                                    </div>
+                                </div>
+                                <div class="card-footer">                                    
+                                    <button class="btn btn-primary" type="submit" name="stocksentry">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- End of Entry Data Form -->
+                        
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+    
+
+{% include 'admin/layout/footer.html' %}

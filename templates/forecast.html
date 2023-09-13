@@ -1,0 +1,51 @@
+{% include 'header.html' %}
+
+<div class="container" style="padding-top: 50px; padding-bottom: 50px;">
+    <div>
+        <h1 style="font-size: 30px;" style="margin: 0; display:inline-block">Forecast : {{name}}</h1>
+        <!-- <a href="/futureforecast?emtid={{emtid}}" class="btn btn-primary" style="float: right;">Future Forecast</a> -->
+    </div>
+    <br>
+    <center>
+        <img src="../static/plot/{{filename}}.png" alt="">
+        <h3>MAPE : {{mape}} %</h3>
+    </center>
+
+
+    <table class="table table-striped table-bordered" id="pred">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Prediction</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in pred %}
+                <tr>
+                    <td>{{loop.index}}</td>
+                    <td>{{data}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+    </table>
+    <br>
+    <br>
+    <form action="futureforecast" method="POST">
+        <div class="card">
+            <div class="card-header">Future Forecast</div>
+            <div class="card-body">
+                <div class="form-group">
+                    <input type="hidden" value="{{emtid}}" name="emtid">
+                    <label for="stocks">Periods</label>
+                    <input type="text" class="form-control" id="stocks" placeholder="Enter Stocks Code" name="n"> 
+                </div>
+            </div>
+            <div class="card-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </form>
+
+
+</div>
+{% include 'footer.html' %}

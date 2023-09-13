@@ -1,0 +1,42 @@
+{% include 'header.html' %}
+
+        <!-- Content -->
+        <div class="container" style="padding-top: 50px; padding-bottom: 50px;">
+            <div class="card">
+                <div class="card-header" style="text-align: center;">
+                    Stock List Table
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th style="text-align: center;">No</th>
+                                <th style="text-align: center;">Stock Code</th>
+                                <th style="text-align: center;">Stock Name</th>
+                                <th style="text-align: center;">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for row in data %}
+                            <tr>
+                                <td align="center">{{ loop.index }}</td>
+                                <td>{{ row.1 }}</td>
+                                <td>{{ row.2 }}</td>
+                                <td align="center">
+                                    <div class="btn-group btn-group-sm" >
+                                        <a href="history?emtid={{row.0}}" class="btn btn-sm btn-success bg-right" style="border-top-left-radius: 30px; border-bottom-left-radius: 30px;"><i class="fa-solid fa-clock-rotate-left"></i>History</a>
+                                        <a href="forecast?emtid={{row.0}}" class="btn btn-sm btn-primary bg-left userinfo" style="border-top-right-radius: 30px; border-bottom-right-radius: 30px;" ><i class="fa-solid fa-chart-line"></i> Forecast</a>                                                                                                    
+                                    </div>                                    
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>                
+            </div>
+        </div>
+        <!-- Content End -->
+
+
+
+{% include 'footer.html' %}
